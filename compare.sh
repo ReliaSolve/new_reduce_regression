@@ -30,7 +30,7 @@ echo "Building $orig"
 
 orig_exe="./reduce/reduce_src/reduce"
 orig_arg=""
-new_exe="python ~/rlab/cctbx-reduce/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
+new_exe="python /home/`whoami`/rlab/cctbx-reduce/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
 
 ######################
 # Generate two outputs for each test file, redirecting standard
@@ -39,7 +39,7 @@ new_exe="python ~/rlab/cctbx-reduce/modules/cctbx_project/mmtbx/reduce/Optimizer
 
 echo
 mkdir -p outputs
-files=`ls fragments/*.pdb`
+files=`(cd fragments; ls *.pdb)`
 failed=0
 for f in $files; do
   ##############################################
@@ -58,23 +58,17 @@ for f in $files; do
   echo "Testing file $f"
   # Run old and new versions in parallel
   ($orig_exe $orig_args $tfile > outputs/$f.orig 2> outputs/$f.orig.stderr) &
-  ($new_exe $new_args $tfile > outputs/$f.new 2> outputs/$f.new.stderr) &
+  ($new_exe $tfile > outputs/$f.new.stdout 2> outputs/$f.new.stderr ; mv deleteme.pdb outputs/$f.new) &
   wait
 
-  # Strip out expected differences
-  #grep -v reduce < outputs/$f.orig > outputs/$f.orig.strip
-  #grep -v reduce < outputs/$f.new > outputs/$f.new.strip
-  #if [ "$PYTHON" -eq "1" ]; then
-  #  grep -v reduce < outputs/$f.py > outputs/$f.py.strip
-  #fi
+  # Test for unexpected differences.  The script returns messages when there
+  # are any differences.
+  d=`python compare_model_files.py outputs/$f.orig outputs/$f.new`
+  echo "$d" > outputs/$f.compare
+  s=`echo -n $d | wc -c`
+  if [ $s -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
 
-  # Test for unexpected differences
-  #d=`diff outputs/$f.orig.strip outputs/$f.new.strip | wc -c`
-  #if [ $d -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
-  #if [ "$PYTHON" -eq "1" ]; then
-  #  d=`diff outputs/$f.orig.strip outputs/$f.py.strip | wc -c`
-  #  if [ $d -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
-  #fi
+done
 
 echo
 if [ $failed -eq 0 ]
