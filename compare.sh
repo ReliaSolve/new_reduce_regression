@@ -62,11 +62,14 @@ for f in $files; do
   wait
 
   # Test for unexpected differences.  The script returns messages when there
-  # are any differences.
-  d=`python compare_model_files.py outputs/$f.orig outputs/$f.new`
+  # are any differences.  Threshold for significant difference between atom
+  # positions is set.
+  THRESH=0.05
+  d=`python compare_model_files.py outputs/$f.orig outputs/$f.new $THRESH`
   echo "$d" > outputs/$f.compare
   s=`echo -n $d | wc -c`
   if [ $s -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
+  rm -f $tfile
 
 done
 
