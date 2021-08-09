@@ -1,0 +1,14 @@
+Number of hydrogen atoms added to the input model: 18 
+
+
+The following H atoms were not placed because they could not be parameterized
+(not enough restraints information)
+ H   CYS A 103 
+ H   HIS A 115 
+ H   CYS A 119 
+
+Atom  HG  CYS A 100  was not placed because it is involved in metal coordination
+Atom  HG  CYS A 103  was not placed because it is involved in metal coordination
+Atom  HE2 HIS A 115  was not placed because it is involved in metal coordination
+Atom  HG  CYS A 119  was not placed because it is involved in metal coordination
+

@@ -1,0 +1,9 @@
+Number of hydrogen atoms added to the input model: 16 
+
+
+The following H atoms were not placed because they could not be parameterized
+(not enough restraints information)
+ H   CYS A  57 
+
+Atom  HG ACYS A  41  was not placed because it is involved in SS BOND
+Atom  HG  CYS A  57  was not placed because it is involved in SS BOND

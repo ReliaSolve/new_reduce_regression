@@ -1,0 +1,12 @@
+Number of hydrogen atoms added to the input model: 74 
+
+
+The following H atoms were not placed because they could not be parameterized
+(not enough restraints information)
+ H   MET A 100 
+
+Atom  HG  CYS A  45  was not placed because it is involved in Misc. bond
+Atom  HG  CYS A  48  was not placed because it is involved in Misc. bond
+Atom  HE2 HIS A  49  was not placed because it is involved in Misc. bond
+Atom  HAB HEC A 202  was not placed because it is involved in Misc. bond
+Atom  HAC HEC A 202  was not placed because it is involved in Misc. bond

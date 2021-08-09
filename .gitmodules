@@ -1,0 +1,3 @@
+[submodule "reduce"]
+	path = reduce
+	url = https://github.com/rlabduke/reduce.git

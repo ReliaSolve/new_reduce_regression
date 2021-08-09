@@ -1,0 +1,21 @@
+Number of hydrogen atoms added to the input model: 32 
+
+
+The following H atoms were not placed because they could not be parameterized
+(not enough restraints information)
+ HO3 NAG C   1 
+ HO4 NAG C   1 
+ HO6 NAG C   1 
+ HO3 NAG C   2 
+ HO4 NAG C   2 
+ HO6 NAG C   2 
+ HO2 BMA C   3 
+ HO3 BMA C   3 
+ HO4 BMA C   3 
+ HO6 BMA C   3 
+
+Atom HD21 ASN A  90  was not placed because it is involved in link_NAG-ASN
+Atom HD22 ASN A  90  was not placed because it is involved in link_NAG-ASN
+Atom  H1  NAG C   1  was not placed because it is involved in link_NAG-ASN
+Atom  H1  NAG C   2  was not placed because it is involved in glycosidic custom
+Atom  H1  BMA C   3  was not placed because it is involved in glycosidic custom

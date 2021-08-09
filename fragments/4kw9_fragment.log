@@ -1,0 +1,10 @@
+Number of hydrogen atoms added to the input model: 21 
+
+
+No H atoms were placed on the following residues because no restraints
+were found:
+CRO
+
+The following H atoms were not placed because they could not be parameterized
+(not enough restraints information)
+ H   VAL A  68 

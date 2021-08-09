@@ -1,0 +1,180 @@
+CRYST1   25.623   24.889   23.129  90.00  90.00  90.00 P 1
+SCALE1      0.039027  0.000000  0.000000        0.00000
+SCALE2      0.000000  0.040178  0.000000        0.00000
+SCALE3      0.000000  0.000000  0.043236        0.00000
+ATOM      1  N   CYS A  45       6.501  14.267  13.004  1.00  7.63           N
+ANISOU    1  N   CYS A  45      844    707   1348     -9      6    -74       N
+ATOM      2  CA  CYS A  45       7.625  14.050  12.108  1.00  7.94           C
+ANISOU    2  CA  CYS A  45      881    769   1368    118     24    -48       C
+ATOM      3  C   CYS A  45       7.990  15.265  11.261  1.00  7.46           C
+ANISOU    3  C   CYS A  45      930    805   1101     32      5   -130       C
+ATOM      4  O   CYS A  45       9.201  15.434  10.933  1.00  8.28           O
+ANISOU    4  O   CYS A  45     1004    620   1522     76     99   -158       O
+ATOM      5  CB  CYS A  45       7.329  12.878  11.149  1.00  7.87           C
+ANISOU    5  CB  CYS A  45     1062    793   1134      9    -12     57       C
+ATOM      6  SG  CYS A  45       6.543  11.418  11.868  1.00  8.15           S
+ANISOU    6  SG  CYS A  45      943    812   1341     52     83    -63       S
+ATOM      7  N   THR A  46       7.065  16.126  10.898  1.00  8.39           N
+ANISOU    7  N   THR A  46      990    931   1268    171    344    153       N
+ATOM      8  CA  THR A  46       7.251  17.277  10.059  1.00  9.63           C
+ANISOU    8  CA  THR A  46     1444   1053   1161     74    357    195       C
+ATOM      9  C   THR A  46       8.193  18.308  10.657  1.00 11.11           C
+ANISOU    9  C   THR A  46     1485   1021   1715    -64   -113    629       C
+ATOM     10  O   THR A  46       8.775  19.153  10.016  1.00 13.68           O
+ANISOU   10  O   THR A  46     1476   1336   2386    -96    286    816       O
+ATOM     11  CB  THR A  46       5.883  17.900   9.671  1.00 14.06           C
+ANISOU   11  CB  THR A  46     2006   1447   1891    -71   -799    625       C
+ATOM     12  OG1ATHR A  46       5.317  17.038   8.667  0.71 25.52           O
+ANISOU   12  OG1ATHR A  46     3956   3561   2182   -671  -1581     48       O
+ATOM     13  CG2ATHR A  46       6.029  19.290   9.116  0.71 18.52           C
+ANISOU   13  CG2ATHR A  46     1270   2164   3604    315    767   1843       C
+ATOM     14  OG1BTHR A  46       5.000  18.106  10.763  0.29 16.93           O
+ANISOU   14  OG1BTHR A  46     1003   2185   3244    536   -995  -1719       O
+ATOM     15  CG2BTHR A  46       5.191  16.925   8.713  0.29  6.58           C
+ANISOU   15  CG2BTHR A  46      556      0   1946    404    723    305       C
+ATOM     16  N   ALA A  47       8.405  18.300  11.959  1.00 10.58           N
+ANISOU   16  N   ALA A  47     1391    847   1782      1     69    126       N
+ATOM     17  CA  ALA A  47       9.352  19.209  12.572  1.00 12.13           C
+ANISOU   17  CA  ALA A  47     1392   1373   1844   -159    522   -446       C
+ATOM     18  C   ALA A  47      10.757  18.981  12.016  1.00 11.98           C
+ANISOU   18  C   ALA A  47     1354    702   2496     24    548   -122       C
+ATOM     19  O   ALA A  47      11.568  19.889  12.032  1.00 21.55           O
+ANISOU   19  O   ALA A  47     1619    694   5875   -139   1410   -608       O
+ATOM     20  CB  ALA A  47       9.351  18.997  14.079  1.00 14.76           C
+ANISOU   20  CB  ALA A  47     1978   1804   1824    139    233   -375       C
+ATOM     21  N   CYS A  48      11.066  17.744  11.586  1.00  9.51           N
+ANISOU   21  N   CYS A  48     1181    697   1737   -241    340    -43       N
+ATOM     22  CA  CYS A  48      12.404  17.428  11.157  1.00  9.15           C
+ANISOU   22  CA  CYS A  48     1056    906   1514    143     -9   -244       C
+ATOM     23  C   CYS A  48      12.504  16.866   9.745  1.00  8.04           C
+ANISOU   23  C   CYS A  48     1010    707   1337    -86    -10     45       C
+ATOM     24  O   CYS A  48      13.604  16.879   9.150  1.00  9.18           O
+ANISOU   24  O   CYS A  48     1167   1074   1248    -42     71     76       O
+ATOM     25  CB  CYS A  48      13.026  16.374  12.095  1.00 10.03           C
+ANISOU   25  CB  CYS A  48     1515   1007   1288    -64   -186   -247       C
+ATOM     26  SG  CYS A  48      13.241  16.991  13.790  1.00 10.02           S
+ANISOU   26  SG  CYS A  48     1422   1043   1343   -115    135   -211       S
+ATOM     27  N   HIS A  49      11.419  16.355   9.169  1.00  8.73           N
+ANISOU   27  N   HIS A  49     1202    804   1312    -50    -88     10       N
+ATOM     28  CA  HIS A  49      11.470  15.707   7.877  1.00  8.36           C
+ANISOU   28  CA  HIS A  49     1115    855   1206    -59    -39     32       C
+ATOM     29  C   HIS A  49      10.519  16.349   6.876  1.00  8.68           C
+ANISOU   29  C   HIS A  49     1281    825   1192    171     89     15       C
+ATOM     30  O   HIS A  49       9.400  16.698   7.262  1.00 12.86           O
+ANISOU   30  O   HIS A  49     1348   1813   1724    545    104     55       O
+ATOM     31  CB  HIS A  49      11.092  14.236   8.000  1.00  7.86           C
+ANISOU   31  CB  HIS A  49     1187    780   1018    112    148     -6       C
+ATOM     32  CG  HIS A  49      12.011  13.286   8.696  1.00  7.38           C
+ANISOU   32  CG  HIS A  49      695    943   1165    -89    -85     10       C
+ATOM     33  ND1 HIS A  49      13.138  12.738   8.104  1.00  7.80           N
+ANISOU   33  ND1 HIS A  49      860    864   1240    -54    214    -70       N
+ATOM     34  CD2 HIS A  49      11.928  12.743   9.955  1.00  7.93           C
+ANISOU   34  CD2 HIS A  49      870   1039   1103    104     33     31       C
+ATOM     35  CE1 HIS A  49      13.723  11.906   8.994  1.00  8.80           C
+ANISOU   35  CE1 HIS A  49     1286    616   1442    177    344    -33       C
+ATOM     36  NE2 HIS A  49      13.008  11.908  10.130  1.00  7.14           N
+ANISOU   36  NE2 HIS A  49      980    529   1205     38     15    -19       N
+ATOM     37  N   MET A 100      17.526  11.446  16.170  1.00 13.58           N
+ANISOU   37  N   MET A 100     1223   1664   2272    109    -81   -665       N
+ATOM     38  CA  MET A 100      16.123  11.145  16.360  1.00 13.28           C
+ANISOU   38  CA  MET A 100     1171   1375   2500    174   -374   -868       C
+ATOM     39  C   MET A 100      15.934  10.576  17.754  1.00 14.25           C
+ANISOU   39  C   MET A 100     1158   1803   2452   -377    -89  -1032       C
+ATOM     40  O   MET A 100      16.791   9.755  18.129  1.00 18.04           O
+ANISOU   40  O   MET A 100     2609   1564   2681    257   1165    202       O
+ATOM     41  CB  MET A 100      15.712  10.167  15.284  1.00 15.72           C
+ANISOU   41  CB  MET A 100     1544   1831   2599    317   -344  -1393       C
+ATOM     42  CG  MET A 100      14.280  10.145  14.994  1.00 13.38           C
+ANISOU   42  CG  MET A 100     1877   1632   1575    724   -939   -525       C
+ATOM     43  SD  MET A 100      13.887   9.259  13.472  1.00  8.70           S
+ANISOU   43  SD  MET A 100     1187    891   1226     46    -54   -130       S
+ATOM     44  CE  MET A 100      12.289   8.643  14.111  1.00  9.42           C
+ANISOU   44  CE  MET A 100     1354   1082   1144    366    251    304       C
+HETATM   45  NB  HEC A 202      11.388  10.356  11.807  1.00  7.32           N
+ANISOU   45  NB  HEC A 202      728    653   1399    441   -205    -84       N
+HETATM   46  ND  HEC A 202      15.292  11.161  11.542  1.00  8.27           N
+ANISOU   46  ND  HEC A 202      875    842   1428    190   -206    -15       N
+HETATM   47  C1A HEC A 202      14.846   8.683   9.994  1.00  7.66           C
+ANISOU   47  C1A HEC A 202      889    640   1380      9    110    112       C
+HETATM   48  C1B HEC A 202      10.720   9.456  10.999  1.00  7.10           C
+ANISOU   48  C1B HEC A 202      920    727   1052    153     37    -34       C
+HETATM   49  C1C HEC A 202      11.913  12.635  13.632  1.00  7.58           C
+ANISOU   49  C1C HEC A 202     1100    787    994   -115     49   -137       C
+HETATM   50  C1D HEC A 202      15.904  12.308  12.034  1.00  8.63           C
+ANISOU   50  C1D HEC A 202      988   1035   1256    117   -121    -68       C
+HETATM   51  C2A HEC A 202      14.588   7.473   9.252  1.00  7.06           C
+ANISOU   51  C2A HEC A 202      905    692   1086    -85    244    130       C
+HETATM   52  C2B HEC A 202       9.313   9.510  11.298  1.00  7.86           C
+ANISOU   52  C2B HEC A 202      915   1071   1003    -57     60   -239       C
+HETATM   53  C2C HEC A 202      12.137  13.838  14.408  1.00  9.35           C
+ANISOU   53  C2C HEC A 202     1313    693   1545   -238    419   -298       C
+HETATM   54  C2D HEC A 202      17.320  12.293  11.661  1.00  7.92           C
+ANISOU   54  C2D HEC A 202     1038    548   1423     72     12    217       C
+HETATM   55  C3A HEC A 202      13.265   7.263   9.214  1.00  6.76           C
+ANISOU   55  C3A HEC A 202      867    683   1020    111    103     -3       C
+HETATM   56  C3B HEC A 202       9.114  10.436  12.280  1.00  6.72           C
+ANISOU   56  C3B HEC A 202      796    840    918      8     50    -81       C
+HETATM   57  C3C HEC A 202      13.408  14.220  14.209  1.00  9.05           C
+ANISOU   57  C3C HEC A 202     1095    953   1392   -196    153   -395       C
+HETATM   58  C3D HEC A 202      17.546  11.117  11.064  1.00  7.84           C
+ANISOU   58  C3D HEC A 202      902    878   1198     48    -38    -36       C
+HETATM   59  C4A HEC A 202      12.675   8.332  10.008  1.00  6.59           C
+ANISOU   59  C4A HEC A 202      896    525   1084    110    -25     46       C
+HETATM   60  C4B HEC A 202      10.428  10.961  12.592  1.00  6.32           C
+ANISOU   60  C4B HEC A 202      667    429   1304    377   -267    -16       C
+HETATM   61  C4C HEC A 202      13.973  13.288  13.261  1.00  8.40           C
+ANISOU   61  C4C HEC A 202     1416    719   1054   -307    446    -90       C
+HETATM   62  C4D HEC A 202      16.264  10.457  10.920  1.00  8.59           C
+ANISOU   62  C4D HEC A 202      883   1061   1319     34   -117   -113       C
+HETATM   63  CAA HEC A 202      15.627   6.651   8.452  1.00  8.18           C
+ANISOU   63  CAA HEC A 202      850   1190   1070    -81    247    -42       C
+HETATM   64  CAB HEC A 202       7.816  10.739  13.055  1.00  7.94           C
+ANISOU   64  CAB HEC A 202      913   1203    899    111    301    288       C
+HETATM   65  CAC HEC A 202      14.094  15.562  14.606  1.00  9.45           C
+ANISOU   65  CAC HEC A 202     1475    877   1237   -248   -169   -301       C
+HETATM   66  CAD HEC A 202      18.873  10.499  10.586  1.00  9.08           C
+ANISOU   66  CAD HEC A 202      955   1266   1229    277     68    120       C
+HETATM   67  CBA HEC A 202      15.750   7.092   6.992  1.00  7.98           C
+ANISOU   67  CBA HEC A 202     1124    859   1050   -239    144   -169       C
+HETATM   68  CBB HEC A 202       7.252   9.616  13.703  1.00  9.00           C
+ANISOU   68  CBB HEC A 202     1208    956   1257   -215    328     76       C
+HETATM   69  CBC HEC A 202      14.093  15.799  16.008  1.00 12.15           C
+ANISOU   69  CBC HEC A 202     1651   1717   1247   -173   -326   -510       C
+HETATM   70  CBD HEC A 202      19.455   9.593  11.699  1.00  9.79           C
+ANISOU   70  CBD HEC A 202     1171   1452   1095    383   -158    -43       C
+HETATM   71  CGA HEC A 202      16.583   6.154   6.151  1.00  9.63           C
+ANISOU   71  CGA HEC A 202     1591    888   1180   -128    356   -209       C
+HETATM   72  CGD HEC A 202      19.762  10.431  12.919  1.00  9.60           C
+ANISOU   72  CGD HEC A 202      939   1443   1266    197    -38   -115       C
+HETATM   73  CHA HEC A 202      16.078   9.267  10.251  1.00  7.63           C
+ANISOU   73  CHA HEC A 202      976    836   1087    -40     -7    111       C
+HETATM   74  CHB HEC A 202      11.301   8.451  10.212  1.00  6.66           C
+ANISOU   74  CHB HEC A 202      887    568   1076    173     68     77       C
+HETATM   75  CHC HEC A 202      10.702  11.980  13.496  1.00  7.17           C
+ANISOU   75  CHC HEC A 202      992    615   1116     67   -191     11       C
+HETATM   76  CHD HEC A 202      15.281  13.297  12.759  1.00  8.14           C
+ANISOU   76  CHD HEC A 202     1103    832   1159     -8     96     36       C
+HETATM   77  CMA HEC A 202      12.488   6.128   8.511  1.00  8.64           C
+ANISOU   77  CMA HEC A 202     1402    867   1015   -198     33   -146       C
+HETATM   78  CMB HEC A 202       8.269   8.640  10.554  1.00  9.84           C
+ANISOU   78  CMB HEC A 202      998   1069   1671     42   -174   -488       C
+HETATM   79  CMC HEC A 202      11.002  14.600  15.080  1.00  9.16           C
+ANISOU   79  CMC HEC A 202     1033   1020   1426     18     87   -284       C
+HETATM   80  CMD HEC A 202      18.274  13.445  12.079  1.00  9.36           C
+ANISOU   80  CMD HEC A 202     1247    871   1438   -190     76     50       C
+HETATM   81  NA  HEC A 202      13.639   9.198  10.472  1.00  8.23           N
+ANISOU   81  NA  HEC A 202      925    580   1625     68     10    -39       N
+HETATM   82  NC  HEC A 202      13.070  12.268  12.946  1.00  7.11           N
+ANISOU   82  NC  HEC A 202     1152    612    940      1     53    -20       N
+HETATM   83  O1A HEC A 202      16.943   6.567   5.000  1.00 10.99           O
+ANISOU   83  O1A HEC A 202     1769   1207   1200   -214    360   -195       O
+HETATM   84  O1D HEC A 202      19.163  10.182  14.005  1.00 10.88           O
+ANISOU   84  O1D HEC A 202     1609   1364   1163    163     36    -60       O
+HETATM   85  O2A HEC A 202      16.836   5.000   6.588  1.00  9.59           O
+ANISOU   85  O2A HEC A 202     1302    945   1397    -86    325   -132       O
+HETATM   86  O2D HEC A 202      20.623  11.372  12.734  1.00 11.49           O
+ANISOU   86  O2D HEC A 202     1069   1630   1667     53    -70     28       O
+HETATM   87 FE   HEC A 202      13.353  10.713  11.724  1.00  7.67          FE
+ANISOU   87 FE   HEC A 202      905    789   1220    -20      8    -86      FE
+TER
+END
