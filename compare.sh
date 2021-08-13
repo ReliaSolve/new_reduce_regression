@@ -42,9 +42,11 @@ mkdir -p outputs
 files=`(cd fragments; ls *.pdb)`
 failed=0
 for f in $files; do
-  ##############################################
   # Full input-file name
   inf=fragments/$f
+
+  # File base name
+  base=`echo $f | cut -d \. -f 1`
 
   # We must extract to a file and then run with that file as a command-line argument
   # because the original version did not process all models in a file when run with
@@ -55,18 +57,18 @@ for f in $files; do
   ##############################################
   # Test with no command-line arguments
 
-  echo "Testing file $f"
+  echo "Testing structure $base"
   # Run old and new versions in parallel
-  ($orig_exe $orig_args $tfile > outputs/$f.orig 2> outputs/$f.orig.stderr) &
-  ($new_exe $tfile > outputs/$f.new.stdout 2> outputs/$f.new.stderr ; mv deleteme.pdb outputs/$f.new) &
+  ($orig_exe $orig_args $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
+  ($new_exe $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb) &
   wait
 
   # Test for unexpected differences.  The script returns messages when there
   # are any differences.  Threshold for significant difference between atom
   # positions is set.
   THRESH=0.05
-  d=`python compare_model_files.py outputs/$f.orig outputs/$f.new $THRESH`
-  echo "$d" > outputs/$f.compare
+  d=`python compare_model_files.py outputs/$base.orig.pdb outputs/$base.new.pdb $THRESH`
+  echo "$d" > outputs/$base.compare
   s=`echo -n $d | wc -c`
   if [ $s -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
   rm -f $tfile
