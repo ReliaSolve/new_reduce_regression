@@ -1,15 +1,14 @@
 #!/bin/bash
 #############################################################################
 # Run regression tests against the current CCTBX/Reduce and a
-# specified original (default e31d8e0ef14e6e8b85634dea502cadac9cf7832b)
-# to check for differences between the results.
+# specified original to check for differences between the results.
 #
 #############################################################################
 
 ######################
 # Parse the command line
 
-orig="fcbdf1821e02661b7b3a637a1e57bcad6ba1cea9"
+orig="e435fa95557172f7741e9526fbd66a3c01354408"
 if [ "$1" != "" ] ; then orig="$1" ; fi
 
 echo "Checking against $orig"
@@ -29,13 +28,14 @@ echo "Building $orig"
 (cd reduce; git checkout $orig; make) &> /dev/null 
 
 orig_exe="./reduce/reduce_src/reduce"
-orig_arg=""
+orig_arg="-FLIP"
 new_exe="python /home/`whoami`/rlab/cctbx-reduce/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
 
 ######################
 # Generate two outputs for each test file, redirecting standard
-# output and standard error to different files.
-# Test the standard outputs to see if any differences are other than we expect.
+# output and standard error to different files.  This also causes the atom
+# dump files, which are what we actually compare.
+# Test the dump files to see if any differences are other than we expect.
 
 echo
 mkdir -p outputs
@@ -55,19 +55,19 @@ for f in $files; do
   cp $inf $tfile
 
   ##############################################
-  # Test with no command-line arguments
+  # Test with -FLIP command-line argument on the original, so it behaves like the new.
 
   echo "Testing structure $base"
   # Run old and new versions in parallel
-  ($orig_exe $orig_args $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
-  ($new_exe $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb) &
+  ($orig_exe $orig_args -DUMPatoms outputs/$base.orig.dump $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
+  ($new_exe $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb; mv atomDump.pdb outputs/$base.new.dump) &
   wait
 
   # Test for unexpected differences.  The script returns messages when there
   # are any differences.  Threshold for significant difference between atom
   # positions is set.
   THRESH=0.05
-  d=`python compare_model_files.py outputs/$base.orig.pdb outputs/$base.new.pdb $THRESH`
+  d=`python compare_dump_files.py outputs/$base.orig.dump outputs/$base.new.dump $THRESH`
   echo "$d" > outputs/$base.compare
   s=`echo -n $d | wc -c`
   if [ $s -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
