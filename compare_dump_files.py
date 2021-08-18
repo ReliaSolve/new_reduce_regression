@@ -1,3 +1,5 @@
+from __future__ import print_function, nested_scopes, generators, division
+from __future__ import absolute_import
 import sys, math
 
 def atomID(s):

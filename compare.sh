@@ -29,7 +29,7 @@ echo "Building $orig"
 
 orig_exe="./reduce/reduce_src/reduce"
 orig_arg="-FLIP"
-new_exe="python /home/`whoami`/rlab/cctbx-reduce/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
+new_exe="python /home/`whoami`/rlab/cctbx-reduce-python27/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
 
 ######################
 # Generate two outputs for each test file, redirecting standard
