@@ -13,6 +13,16 @@ def position(s):
   w = s.split()
   return ( float(w[5]), float(w[6]), float(w[7]) )
 
+def radius(s):
+  # Return the radius for the atom.
+  w = s.split()
+  return ( w[8] )
+
+def flag(s,f):
+  # Return a flag for the atom, indexed by 0-2.
+  w = s.split()
+  return ( w[9+f] )
+
 def distance(a, b):
   # Return the distance between 3-space tuples a and b
   return math.sqrt( (a[0]-b[0])**2 + (a[1]-b[1])**2 + (a[2]-b[2])**2 )
@@ -25,13 +35,13 @@ def run_comparison(fileName1, fileName2, thresh, verbosity = 10):
     print('Reading data from',fileName1)
   with open(fileName1) as f:
     m1 = f.readlines()
-  m1.sort()
+  m1.sort(key=lambda x:atomID(x))
 
   if verbosity >= 1:
     print('Reading model from',fileName2)
   with open(fileName2) as f:
     m2 = f.readlines()
-  m2.sort()
+  m2.sort(key=lambda x:atomID(x))
 
   # Compare the two and report on any differences.
   # Both lists are sorted, so we'll know which has a missing element compared
@@ -55,16 +65,30 @@ def run_comparison(fileName1, fileName2, thresh, verbosity = 10):
       m2ID += 1
       continue
 
+    # Check the radius to see if they differ
+    oldRadius = radius(m1[m1ID])
+    newRadius = radius(m2[m2ID])
+    if oldRadius != newRadius:
+      print(atomID(m1[m1ID])+' radii differ: old is {}, new is {}'.format(oldRadius,newRadius))
+
+    # Check the flag fields to see if any of them differ
+    for f in range(3):
+      oldFlag = flag(m1[m1ID], f)
+      newFlag = flag(m2[m2ID], f)
+      if oldFlag != newFlag:
+        print(atomID(m1[m1ID])+' flags differ: old is {}, new is {}'.format(oldFlag,newFlag))
+
     # Check the distance between the atoms.
     dist = distance(position(m1[m1ID]),position(m2[m2ID]))
     if dist > thresh:
-      print(atomID(m1[m1ID])+' Distance between runs:{:.2f}'.format(dist))
+      print(atomID(m1[m1ID])+' Distance between runs: {:.2f}'.format(dist))
 
     # Go on to next line
     m1ID += 1
     m2ID += 1
 
   # Finish up either list that is not done
+  print('XXX finishing up')
   while m1ID < len(m1):
     print('Only in first:',atomID(m1[m1ID]))
     m1ID += 1
