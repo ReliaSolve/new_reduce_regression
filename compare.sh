@@ -29,7 +29,7 @@ echo "Building $orig"
 
 orig_exe="./reduce/reduce_src/reduce"
 orig_arg="-FLIP"
-new_exe="python /home/`whoami`/rlab/cctbx-reduce-python27/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
+new_exe="python /home/`whoami`/rlab/cctbx-native-molprobity-python27/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
 
 ######################
 # Generate two outputs for each test file, redirecting standard
@@ -60,7 +60,7 @@ for f in $files; do
   echo "Testing structure $base"
   # Run old and new versions in parallel
   ($orig_exe $orig_args -DUMPatoms outputs/$base.orig.dump $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
-  ($new_exe $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb; mv atomDump.pdb outputs/$base.new.dump) &
+  ($new_exe --dumpAtoms $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb; mv atomDump.pdb outputs/$base.new.dump) &
   wait
 
   # Test for unexpected differences.  The script returns messages when there
