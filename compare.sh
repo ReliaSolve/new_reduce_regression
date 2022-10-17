@@ -8,7 +8,7 @@
 ######################
 # Parse the command line
 
-orig="e435fa95557172f7741e9526fbd66a3c01354408"
+orig="e9d54ed7c9edf6844b0b95c120b10f0e9a5322d3"
 if [ "$1" != "" ] ; then orig="$1" ; fi
 
 echo "Checking against $orig"
@@ -29,7 +29,7 @@ echo "Building $orig"
 
 orig_exe="./reduce/reduce_src/reduce"
 orig_arg="-FLIP"
-new_exe="python /home/`whoami`/rlab/cctbx-native-molprobity-python27/modules/cctbx_project/mmtbx/reduce/Optimizers.py"
+new_exe="mmtbx.reduce2"
 
 ######################
 # Generate two outputs for each test file, redirecting standard
@@ -56,22 +56,31 @@ for f in $files; do
 
   ##############################################
   # Test with -FLIP command-line argument on the original, so it behaves like the new.
+  # Turn off the bond fix-up in Reduce2 so that we end up with Probe2 scores that
+  # match the resulting geometry, so we can see whether things are better flipped
+  # or not flipped.
 
   echo "Testing structure $base"
   # Run old and new versions in parallel
-  ($orig_exe $orig_args -DUMPatoms outputs/$base.orig.dump $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
-  ($new_exe --dumpAtoms $tfile > outputs/$base.new.stdout 2> outputs/$base.new.stderr ; mv deleteme.pdb outputs/$base.new.pdb; mv atomDump.pdb outputs/$base.new.dump) &
+  ($orig_exe $orig_args $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
+  ($new_exe $tfile add_flip_movers=True output.filename=outputs/$base.new.pdb output.description_file_name=outputs/$base.new.description output.overwrite=True > outputs/$base.new.stdout 2> outputs/$base.new.stderr) &
   wait
 
-  # Test for unexpected differences.  The script returns messages when there
-  # are any differences.  Threshold for significant difference between atom
-  # positions is set.
-  THRESH=0.05
-  d=`python compare_dump_files.py outputs/$base.orig.dump outputs/$base.new.dump $THRESH`
-  echo "$d" > outputs/$base.compare
-  s=`echo -n $d | wc -c`
-  if [ $s -ne 0 ]; then echo " Failed!"; failed=$((failed + 1)); fi
-  rm -f $tfile
+  # Use Probe2 to score both the original and new results to see which one is better.
+  # Note that both will have scored things with non-fixed-up flips even though the output
+  # includes flips, but at least we are comparing apples to apples.
+  (mmtbx.probe2 ignore_lack_of_explicit_hydrogens=True outputs/$base.orig.pdb output.filename=outputs/$base.orig output.overwrite=True output.count_dots=True > outputs/$base.orig.probe2.stdout 2> outputs/$base.orig.probe2.stderr) &
+  (mmtbx.probe2 ignore_lack_of_explicit_hydrogens=True outputs/$base.new.pdb output.filename=outputs/$base.new output.overwrite=True output.count_dots=True > outputs/$base.new.probe2.stdout 2> outputs/$base.new.probe2.stderr) &
+  wait
+
+  # See if Reduce2 did at least as well as Reduce.  If not, report a failure.
+  origScore=`grep grand outputs/$base.orig.txt | awk '{print $5}'`
+  newScore=`grep grand outputs/$base.new.txt | awk '{print $5}'`
+  if (( $(echo "$origScore > $newScore" | bc -l) )); then echo " Worse!"; failed=$((failed + 1)); fi
+  if (( $(echo "$origScore < $newScore" | bc -l) )); then echo " Better!"; fi
+
+  # @todo Score each Reduce2 flip in the original and non-fixup flip orientation and see if
+  # it picked the best one.
 
 done
 
