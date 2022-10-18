@@ -66,6 +66,10 @@ for f in $files; do
   ($new_exe $tfile add_flip_movers=True output.filename=outputs/$base.new.pdb output.description_file_name=outputs/$base.new.description output.overwrite=True > outputs/$base.new.stdout 2> outputs/$base.new.stderr) &
   wait
 
+  # Use Probe2 to generate Kinemages from both so we can debug.
+  (mmtbx.probe2 ignore_lack_of_explicit_hydrogens=True outputs/$base.orig.pdb output.filename=outputs/$base.orig output.overwrite=True > outputs/$base.orig.probe2.kin.stdout 2> outputs/$base.orig.probe2.kin.stderr) &
+  (mmtbx.probe2 ignore_lack_of_explicit_hydrogens=True outputs/$base.new.pdb output.filename=outputs/$base.new output.overwrite=True > outputs/$base.new.probe2.kin.stdout 2> outputs/$base.new.probe2.kin.stderr) &
+
   # Use Probe2 to score both the original and new results to see which one is better.
   # Note that both will have scored things with non-fixed-up flips even though the output
   # includes flips, but at least we are comparing apples to apples.
