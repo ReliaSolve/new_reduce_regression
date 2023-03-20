@@ -28,7 +28,7 @@ echo "Building $orig"
 (cd reduce; git checkout $orig; make) &> /dev/null 
 
 orig_exe="./reduce/reduce_src/reduce"
-orig_args="-FLIP"
+orig_args="-FLIP -DROP_HYDROGENS_ON_ATOM_RECORDS -DROP_HYDROGENS_ON_OTHER_RECORDS"
 new_exe="mmtbx.reduce2"
 
 ######################
