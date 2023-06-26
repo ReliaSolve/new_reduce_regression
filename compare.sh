@@ -63,7 +63,7 @@ for f in $files; do
   echo "Testing structure $base"
   # Run old and new versions in parallel
   ($orig_exe $orig_args $tfile > outputs/$base.orig.pdb 2> outputs/$base.orig.stderr) &
-  ($new_exe $tfile add_flip_movers=True output.filename=outputs/$base.new.pdb output.description_file_name=outputs/$base.new.description output.overwrite=True > outputs/$base.new.stdout 2> outputs/$base.new.stderr) &
+  ($new_exe $tfile stop_on_any_missing_hydrogen=False add_flip_movers=True output.filename=outputs/$base.new.pdb output.description_file_name=outputs/$base.new.description output.overwrite=True > outputs/$base.new.stdout 2> outputs/$base.new.stderr) &
   wait
 
   # Use Probe2 to generate Kinemages from both so we can debug.
